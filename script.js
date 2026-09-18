@@ -91,17 +91,13 @@ const reducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 );
 
-const phoneMotion = window.matchMedia(
-  "(max-width: 700px), (pointer: coarse)"
-);
-
 /*
- * Animations are paused by default when:
- * 1. The user prefers reduced motion.
- * 2. The website is opened on a phone or touch device.
+ * Motion runs normally on phones and desktop.
+ * It pauses only when:
+ * 1. The visitor presses Pause Motion.
+ * 2. The device accessibility settings request reduced motion.
  */
-let paused = reducedMotion.matches || phoneMotion.matches;
-let motionChoiceMade = false;
+let paused = reducedMotion.matches;
 
 function setMotion() {
   document.documentElement.classList.toggle(
@@ -112,6 +108,7 @@ function setMotion() {
   if (!motionButton) return;
 
   motionButton.setAttribute("aria-pressed", String(paused));
+
   motionButton.textContent = paused
     ? "Resume motion"
     : "Pause motion";
@@ -120,28 +117,15 @@ function setMotion() {
 setMotion();
 
 motionButton?.addEventListener("click", () => {
-  motionChoiceMade = true;
   paused = !paused;
   setMotion();
 });
 
-/*
- * Automatically update motion when the screen size changes,
- * unless the visitor already selected a motion preference.
- */
-phoneMotion.addEventListener("change", (event) => {
-  if (!motionChoiceMade) {
-    paused = reducedMotion.matches || event.matches;
-    setMotion();
-  }
+reducedMotion.addEventListener("change", (event) => {
+  paused = event.matches;
+  setMotion();
 });
 
-reducedMotion.addEventListener("change", (event) => {
-  if (!motionChoiceMade) {
-    paused = event.matches || phoneMotion.matches;
-    setMotion();
-  }
-});
 
 /* Page scroll-progress indicator */
 
