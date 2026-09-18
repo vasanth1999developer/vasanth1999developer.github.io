@@ -1130,6 +1130,214 @@ footer {
 .reveal {opacity:1;transform:none;}
 @media(max-width:900px){.portrait-card{margin-top:48px;}}
 
+
+
+
+/* FINAL PHONE FIX — KEEP AT THE END */
+
+@media (max-width: 700px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-header,
+  .hero,
+  .work-section,
+  .projects-section,
+  .contact-section {
+    width: calc(100% - 32px);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero {
+    display: block;
+    min-height: auto;
+    padding-top: 45px;
+  }
+
+  h1 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+    line-height: 0.98;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  /* Stop portrait movement and overflow */
+
+  .portrait-card {
+    width: 100% !important;
+    max-width: 350px;
+    margin: 45px auto 0 !important;
+    overflow: hidden !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .portrait-orbit {
+    display: none !important;
+  }
+
+  /* Remove unnecessary card heights */
+
+  .work-card,
+  .work-card-featured {
+    min-height: 0 !important;
+    grid-row: auto;
+  }
+
+  .contact-card {
+    min-height: 0 !important;
+    grid-template-columns: 1fr;
+    padding: 34px 22px;
+  }
+
+  /* Stack project diagrams vertically */
+
+  .projects-heading,
+  .case-study {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-alt .case-copy {
+    order: 0;
+  }
+
+  .architecture-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 0 !important;
+    overflow: hidden;
+  }
+
+  .arch-flow {
+    flex-direction: column;
+    min-height: 0 !important;
+    padding: 28px 0;
+  }
+
+  .arch-node {
+    width: min(220px, 92%);
+    min-width: 0;
+  }
+
+  .arch-flow > i {
+    flex: none;
+    width: 2px;
+    height: 32px;
+    margin: 0;
+  }
+
+  .arch-flow > i::after {
+    display: none;
+  }
+
+  .event-targets {
+    grid-template-columns: 1fr;
+  }
+
+  /* Align contact buttons */
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-links a {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Pause unstable animations */
+
+  .portrait-card,
+  .portrait-orbit span,
+  .system-art i::after,
+  .queue-track b,
+  .award-star,
+  .event-line b {
+    animation-play-state: paused !important;
+  }
+
+  .motion-toggle {
+    right: 12px;
+    bottom: 12px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (hover: none) {
+  .button:hover,
+  .work-card:hover,
+  .award-photo:hover,
+  .proof-strip div:hover,
+  .tag-list li:hover,
+  .contact-links a:hover {
+    transform: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Lightweight graphics: CSS and HTML only, ready for static hosting. */
 .hero{position:relative}
 .hero:before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(#0b101025 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
