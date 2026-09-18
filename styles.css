@@ -1377,3 +1377,63 @@ footer {
 @media(max-width:640px){.portrait-card{width:calc(100% - 28px)}.system-art{padding:24px 8px}.system-art i{margin:0 7px}.system-node{font-size:23px}.motion-toggle{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.portrait-card,.portrait-orbit span,.system-art i:after,.queue-track b,.award-star{animation:none!important}}
 @media print{.motion-toggle,.scroll-progress,.portrait-orbit{display:none}.portrait-card{transform:none;animation:none}}
+
+
+
+
+
+
+
+
+
+@media (max-width: 700px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .portrait-card {
+    width: 100% !important;
+    max-width: 350px;
+    margin: 45px auto 0 !important;
+    overflow: hidden !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .portrait-orbit {
+    display: none !important;
+  }
+
+  .work-card,
+  .work-card-featured,
+  .contact-card,
+  .architecture-card {
+    min-height: 0 !important;
+  }
+
+  .arch-flow {
+    flex-direction: column;
+    min-height: 0 !important;
+  }
+
+  .arch-flow > i {
+    flex: none;
+    width: 2px;
+    height: 32px;
+    margin: 0;
+  }
+
+  .event-targets,
+  .contact-links {
+    grid-template-columns: 1fr;
+  }
+
+  .system-art i::after,
+  .queue-track b,
+  .award-star,
+  .event-line b {
+    animation-play-state: running !important;
+  }
+}
